@@ -1,0 +1,31 @@
+name: Compilar NutryScan C++ (Windows)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Preparar compilador de Visual Studio (x64)
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Configurar
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Compilar
+        run: cmake --build build
+
+      - name: Subir NutryScan.exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: NutryScan-Windows-Cpp
+          path: build/NutryScan.exe
+          retention-days: 30
