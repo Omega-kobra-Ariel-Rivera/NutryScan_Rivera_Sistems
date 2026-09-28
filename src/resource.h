@@ -1,0 +1,13 @@
+#pragma once
+
+#define IDI_APP 101
+#define IDD_ADD_FOOD 201
+
+#define IDC_FOOD_NAME 1001
+#define IDC_PORTION 1002
+#define IDC_QUANTITY 1003
+#define IDC_MEAL 1004
+#define IDC_CALORIES 1005
+#define IDC_PROTEIN 1006
+#define IDC_CARBS 1007
+#define IDC_FAT 1008

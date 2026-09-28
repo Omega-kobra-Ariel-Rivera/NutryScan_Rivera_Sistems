@@ -1,0 +1,59 @@
+#pragma code_page(65001)
+#include <windows.h>
+#include "resource.h"
+
+IDI_APP ICON "app.ico"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+ FILEFLAGS 0x0L
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "340A04B0"
+        BEGIN
+            VALUE "CompanyName", "RiveraSystems"
+            VALUE "FileDescription", "NutryScan - Nutrición y salud"
+            VALUE "FileVersion", "1.0.0"
+            VALUE "InternalName", "NutryScan"
+            VALUE "OriginalFilename", "NutryScan.exe"
+            VALUE "ProductName", "NutryScan"
+            VALUE "ProductVersion", "1.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x340A, 1200
+    END
+END
+
+IDD_ADD_FOOD DIALOGEX 0, 0, 300, 236
+STYLE DS_MODALFRAME | DS_CENTER | DS_SHELLFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Agregar alimento"
+FONT 9, "Segoe UI", 400, 0, 0x1
+BEGIN
+    LTEXT           "Alimento (escribe o elige del catálogo)", -1, 12, 10, 276, 10
+    COMBOBOX        IDC_FOOD_NAME, 12, 22, 276, 180, CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Porción", -1, 12, 44, 180, 10
+    EDITTEXT        IDC_PORTION, 12, 56, 180, 14, ES_AUTOHSCROLL
+    LTEXT           "Cantidad de porciones", -1, 204, 44, 84, 10
+    EDITTEXT        IDC_QUANTITY, 204, 56, 84, 14, ES_AUTOHSCROLL
+    LTEXT           "Comida", -1, 12, 78, 276, 10
+    COMBOBOX        IDC_MEAL, 12, 90, 276, 100, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Valores por porción", -1, 12, 116, 276, 10
+    LTEXT           "Calorías (kcal)", -1, 12, 132, 132, 10
+    EDITTEXT        IDC_CALORIES, 12, 144, 132, 14, ES_AUTOHSCROLL
+    LTEXT           "Proteínas (g)", -1, 156, 132, 132, 10
+    EDITTEXT        IDC_PROTEIN, 156, 144, 132, 14, ES_AUTOHSCROLL
+    LTEXT           "Carbohidratos (g)", -1, 12, 166, 132, 10
+    EDITTEXT        IDC_CARBS, 12, 178, 132, 14, ES_AUTOHSCROLL
+    LTEXT           "Grasas (g)", -1, 156, 166, 132, 10
+    EDITTEXT        IDC_FAT, 156, 178, 132, 14, ES_AUTOHSCROLL
+    PUSHBUTTON      "Cancelar", IDCANCEL, 116, 208, 80, 16
+    DEFPUSHBUTTON   "Agregar alimento", IDOK, 204, 208, 84, 16
+END
